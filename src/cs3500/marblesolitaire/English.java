@@ -1,0 +1,75 @@
+package cs3500.marblesolitaire;
+
+import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
+import cs3500.marblesolitaire.view.MarbleSolitaireTextView;
+import cs3500.marblesolitaire.view.MarbleSolitaireView;
+
+
+/**
+ * Class English represents the triangle version of the game, contains methods to check if the
+ * user requested the version and the action to implement the version of the game.
+ */
+public class English extends AbstractTypes<EnglishSolitaireModel, MarbleSolitaireView> {
+
+  /**
+   * Check if user requested the game type.
+   * @param arr represents input.
+   * @return a boolean to confirm.
+   */
+  @Override
+  public boolean condition(String[] arr) {
+    return arr[0].equals("english");
+  }
+
+  /**
+   * Return the model depends on the type with 3 arguments.
+   * @param armThickness represents the arm thickness
+   * @param row represents the row of the empty position
+   * @param column represents the column of the empty position
+   * @return the model.
+   */
+  @Override
+  protected EnglishSolitaireModel returnModel(int armThickness, int row, int column) {
+    return new EnglishSolitaireModel(armThickness, row, column);
+  }
+
+  /**
+   * Return the model depends on the type with 1 argument.
+   * @param armThickness represents the arm thickness of the model.
+   * @return the model.
+   */
+  @Override
+  protected EnglishSolitaireModel returnModelOneArgument(int armThickness) {
+    return new EnglishSolitaireModel(armThickness);
+  }
+
+  /**
+   * Return the model depends on the type with 2 arguments.
+   * @param row represents the row of empty position.
+   * @param column represents the column of empty position.
+   * @return the model.
+   */
+  @Override
+  protected EnglishSolitaireModel returnModelTwoArguments(int row, int column) {
+    return new EnglishSolitaireModel(row, column);
+  }
+
+  /**
+   * Return the default model depends on the type.
+   * @return the default model.
+   */
+  @Override
+  protected EnglishSolitaireModel returnDefaultModel() {
+    return new EnglishSolitaireModel();
+  }
+
+  /**
+   * Return the view depends on the type of the model given.
+   * @param model represents the the model.
+   * @return the view.
+   */
+  @Override
+  protected MarbleSolitaireView returnView(EnglishSolitaireModel model) {
+    return new MarbleSolitaireTextView(model);
+  }
+}
